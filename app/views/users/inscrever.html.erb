@@ -1,0 +1,28 @@
+<div class="post">
+	<h2 class="title">Inscrever um Amigo</h2>
+	<div class="entry">
+		<h3>Atenção!</h3>
+		<p>Olá, se você tem um amigo que já está cadastrado no site e quer dar permissão a ele de postar suas próprias músicas,
+		use este formulário preenchendo o email que ele usou no cadastro. Fazendo isso <strong>você 
+		ganhará	5%</strong>	de tudo o que seu amigo vender. Analize os arquivos que ele posta para verificar sua 
+		autenticidade e evitar que outros artistas sejam prejudicados.</p>
+	</div>
+</div>
+<fieldset>
+	<legend>Inscrever Amigo</legend>
+	<%= simple_form_for User.new do |f|%>
+		<%=f.input :email%>
+		
+		<%=f.submit 'Inscrever Amigo'%>
+	<%end%>
+</fieldset>
+<fieldset>
+	<legend>Amigos Inscritos</legend>
+	<% unless inscritos.blank?%>
+		<%=render :partial => 'users/list-inscritos'%>
+	<%else%>
+		<div style="margin: 20px">
+			Você não tem amigos inscritos no momento.
+		</div>
+	<%end%>
+</fieldset>

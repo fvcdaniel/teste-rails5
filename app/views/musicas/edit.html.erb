@@ -1,0 +1,15 @@
+<fieldset>
+	<legend>Editar Musica</legend>
+	<%= simple_form_for @musica, :html => {:multipart => true} do |f| %>
+		
+		<%=f.input :nome%>
+		<%=f.input :artista%>
+		<%=f.association :album %>
+		<%=f.input :ano%>
+		<%=f.input :arquivo, :as => :file%>
+		
+		<%=f.submit "Enviar", :disable_with => '...', :class => :input%>
+		<%=button_to_function "Voltar", "history.back()"%>
+		
+	<%end%>
+</fieldset>

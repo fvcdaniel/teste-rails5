@@ -1,0 +1,11 @@
+<fieldset>
+	<legend>Minhas Musicas</legend>
+	<%= render :partial => "layouts/menu-resource" %>
+	<% unless @musicas.blank?%>
+		<%= render :partial => "musicas/list" %>
+	<%else%>
+		<div style="margin: 20px">
+			Você não tem músicas cadastradas no momento. Clique em "adicionar musica" para cadastrar uma nova música.
+		</div>
+	<%end%>
+</fieldset>

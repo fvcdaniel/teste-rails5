@@ -1,0 +1,23 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/Fixtures.html
+
+one:
+  nome: MyString
+  artista: MyString
+  ano: 1
+  genero: MyString
+  tamanho: MyString
+  tempo: MyString
+  download: 1
+  preco: 9.99
+  formato: 
+
+two:
+  nome: MyString
+  artista: MyString
+  ano: 1
+  genero: MyString
+  tamanho: MyString
+  tempo: MyString
+  download: 1
+  preco: 9.99
+  formato: 

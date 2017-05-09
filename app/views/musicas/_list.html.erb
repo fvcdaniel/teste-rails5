@@ -1,0 +1,31 @@
+
+<table summary="pedidos Cadastradas" id="newspaper-a">
+	<thead>
+		<tr>
+			<th scope="col">Nome</th>
+			<th scope="col">Artista</th>
+			<th scope="col">Album</th>
+			<th scope="col">Ano</th>
+			<th scope="col">Downloads</th>
+			<th scope="col"></th>
+			<th scope="col"></th>
+			<th scope="col"></th>
+		</tr>
+	</thead>
+	<% for musica in @musicas %>
+		<% musica.nome.force_encoding('utf-8') %>
+		<tbody>
+			<tr>
+				<td><%=h musica.nome %></td>
+				<td><%=h musica.artista %></td>
+				<td><%=h musica.album ? musica.album.nome : '*sem album relacionado' %></td>
+				<td><%=h musica.ano %></td>
+				<td><%=h musica.download.to_i %></td>
+				<td><%=link_to 'Visualizar', musica%></td>
+				<td><%=link_to 'Editar', edit_musica_path(musica)%></td>
+				<td><%=link_to 'Deletar', musica, :method=>:delete, :confirm=>"Você tem certeza que deseja deletar esta música?"%></td>
+			</tr>
+		</tbody>
+	<%end%>
+</table>
+	

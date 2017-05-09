@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/Fixtures.html
+
+one:
+  user: 
+  musica: 
+  status: MyString
+  preco: 9.99
+  descricao: MyString
+  dt_pedido: 2011-09-22 21:43:37
+
+two:
+  user: 
+  musica: 
+  status: MyString
+  preco: 9.99
+  descricao: MyString
+  dt_pedido: 2011-09-22 21:43:37

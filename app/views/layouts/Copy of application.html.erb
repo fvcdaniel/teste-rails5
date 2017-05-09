@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>GospelMusic Downloads</title>
+  <%= stylesheet_link_tag    "application" %>
+  <%= javascript_include_tag "application" %>
+  <%= csrf_meta_tags %>
+  
+</head>
+<body>
+	
+	<div align="center">
+		<div class="header">
+			<div class="nav">
+			</div>
+			<%if user_signed_in? %>
+				<div align="right" style="float: right; position:absolute;">
+					<%= link_to "INICIO", home_path, :method => :get, :class=>"linkbtn" %>
+						|
+					<%if can? :create, Album %>
+		    			<%= link_to "MEUS ALBUNS", albums_path, :method => :get, :class=>"linkbtn" %>
+		    			|
+					<%end%>
+					<%if can? :create, Musica %>
+		    			<%= link_to "MINHAS MUSICAS", musicas_path, :method => :get, :class=>"linkbtn" %>
+		    			|
+					<%end%>
+					<%if can? :read, Pedido %>
+		    			<%= link_to "MEUS PEDIDOS", {:controller => 'pedidos'}, :class=>"linkbtn" %>
+		    			|
+					<%end%>
+					<%if can? :create, Musica %>
+		    			<%= link_to "INSCREVER AMIGO", {:controller => 'users', :action => 'inscrever'},:class=>"linkbtn" %>
+		    			|
+					<%end%>
+					<%= link_to "SOBRE", {:action=>'sobre'}, :method => :get, :class=>"linkbtn" %>
+						|
+					<%= link_to "AJUDA", {:action=>'ajuda'}, :method => :get, :class=>"linkbtn" %>
+						|
+					<%= link_to "SAIR", destroy_user_session_path, :method => :delete, :class=>"linkbtn2" %>
+		    	</div>
+		    	<br clear="all" />
+			<%end%>
+		</div>
+		<div align="center">
+			<%=link_to image_tag("home.png", :border=>0, :alt => 'inicio', :size => "64x64"), home_path%>
+		</div>
+		
+		<%if !notice.nil?%>
+			<p class="notice"><%= notice %></p>
+		<%end%>
+		<%if !alert.nil?%>
+	    	<p class="alert"><%= alert %></p>
+	    <%end%>
+	
+		<%= yield %>
+	
+		<div>
+			<br />
+			<script type="text/javascript"><!--
+				google_ad_client = "ca-pub-6098263277323753";
+				/* Google Default */
+				google_ad_slot = "2368870287";
+				google_ad_width = 728;
+				google_ad_height = 90;
+				//-->
+				</script>
+				<script type="text/javascript"
+				src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+			</script>
+		</div>
+		<%if user_signed_in? %>
+			<div align="right" style="float: right;">
+				Conectado como <%= current_user.email %>. N&atilde;o &eacute; voc&ecirc;?
+	    		<%= link_to "Clique aqui.", destroy_user_session_path, :method => :delete %>
+	    	</div>
+		<%end%>
+	</div>
+</body>
+</html>

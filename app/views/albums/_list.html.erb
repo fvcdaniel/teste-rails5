@@ -1,0 +1,23 @@
+
+<table summary="pedidos Cadastradas" id="newspaper-a">
+	<thead>
+		<tr>
+			<th scope="col">Nome</th>
+			<th scope="col"></th>
+			<th scope="col"></th>
+			<th scope="col"></th>
+		</tr>
+	</thead>
+	<% for album in current_user.albums %>
+		<% album.nome.force_encoding('utf-8') %>
+		<tbody>
+			<tr>
+				<td><%=h album.nome %></td>
+				<td><%=link_to 'Visualizar', album%></td>
+				<td><%=link_to 'Editar', edit_album_path(album)%></td>
+				<td><%=link_to 'Deletar', album, :method=>:delete, :confirm=>"Você tem certeza que deseja deletar este album?"%></td>
+			</tr>
+		</tbody>
+	<%end%>
+</table>
+	

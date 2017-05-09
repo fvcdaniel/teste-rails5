@@ -1,0 +1,23 @@
+<div align="center" style="margin-top: 2%">
+	<%= image_tag "logo_tmp.jpg", :alt => 'logo', :size => "512x205" %>
+	
+	<br />
+	<br />
+	<%= form_tag('/home/') do -%>
+		<div class="home_table">
+			<%= hidden_field_tag :direction, params[:direction] %>
+			<%= hidden_field_tag :sort, params[:sort] %>
+			<%=text_field_tag 'search','', :size => 55 %>
+			<%= submit_tag 'Pesquisar' %>
+		</div>
+		<% unless @musicas.blank?%>
+			<%= render :partial => "home/list" %>
+			<%= will_paginate @musicas %>
+		<%else%>
+			<div style="margin: 20px">
+				Nenhuma música encontrada.
+			</div>
+		<%end%>
+ 	<% end -%>
+	
+</div>

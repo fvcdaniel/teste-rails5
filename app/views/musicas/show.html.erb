@@ -1,0 +1,36 @@
+<fieldset style="width: 70%">
+	<legend>Minha Musica</legend>
+	<p>
+	  <b>Nome:</b>
+	  <%= @musica.nome %>
+	</p>
+	<p>
+	  <b>Artista:</b>
+	  <%= @musica.artista %>
+	</p>
+	<p>
+	  <b>Album:</b>
+	  <%= @musica.album ? @musica.album.nome : '*sem album relacionado' %>
+	</p>
+	<p>
+	  <b>Ano:</b>
+	  <%= @musica.ano %>
+	</p>
+	<p>
+		<b>Fazer Download:</b>
+	 	<%= link_to "Clique Aqui", @musica.arquivo.url%>
+	</p>
+	<p>
+	 	<b>pedido:</b>
+	 	<%= link_to "HTML5 Audio", @musica.arquivo.url, :class => "html5", :id=>@musica.id %>  
+	</p>
+	<p>
+	<b>Escute com HTML5 Audio</b>  
+		<section id="audio<%=@musica.id%>">  
+		</section>
+	</p> 
+	
+	 
+	<%= link_to 'Editar', edit_musica_path(@pedido) %> |
+	<%= link_to 'Voltar', musicas_path %>
+</fieldset>

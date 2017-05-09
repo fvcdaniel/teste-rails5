@@ -1,0 +1,13 @@
+development: &development
+  developer: true
+  base: "http://localhost:3000"
+  return_to: "/pedidos/efetuado"
+  email: user@example.com
+
+test:
+  <<: *development
+
+production:
+  authenticity_token: 22200F0A357849469E54997F6D66998A
+  email: fvcdaniel@gmail.com
+  return_to: "http://midia-gospel.com/pedidos/efetuado"

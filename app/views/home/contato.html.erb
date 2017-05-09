@@ -1,0 +1,17 @@
+<div class="post">
+	<h2 class="title">Contato</h2>
+	<div class="entry">
+		<h3>Envie-e nos um email</h3>
+		<p>Se você tem alguma dúvida, sugestão ou outro tipo de assunto, mande-nos uma mensagem e nós estaremos 
+			dispostos a lhe atender.
+		</p>
+	</div>
+</div>
+<fieldset>
+	<%= simple_form_for Contato.new do |f|%>
+		<%=f.input :email%>
+		<%=f.input :texto%>
+		
+		<%=f.submit 'Enviar'%>
+	<%end%>
+</fieldset>

@@ -1,0 +1,67 @@
+site onde estão as tarefas.
+
+http://scrumy.com/danielcardoso
+
+RAILS_ENV=production bundle exec rake assets:precompile
+
+$ heroku create
+Enter your Heroku credentials.
+Email: fvcdaniel@gmail.com
+Password:
+Found existing public key: C:\Users\Daniel/.ssh/id_rsa.pub
+Uploading ssh public key C:\Users\Daniel/.ssh/id_rsa.pub
+Creating vivid-samurai-7980... done, stack is bamboo-mri-1.9.2
+http://vivid-samurai-7980.heroku.com/ | git@heroku.com:vivid-samurai-7980.git
+
+$ heroku create
+Creating pure-galaxy-9172... done, stack is bamboo-mri-1.9.2
+http://pure-galaxy-9172.heroku.com/ | git@heroku.com:pure-galaxy-9172.git
+Git remote heroku added
+
+$ heroku create gospel-music
+Creating gospel-music... done, stack is bamboo-mri-1.9.2
+http://gospel-music.heroku.com/ | git@heroku.com:gospel-music.git
+
+Assuming your current remote is named origin then:
+Delete the current remote reference with
+	git remote rm origin
+Add the new remote
+	git remote add origin <URL to new heroku app>
+push to new domain
+	git push -u origin master
+The -u will set this up as tracked.
+
+
+# Map all the attributes from PagSeguro.
+    #
+    MAPPING = {
+      :payment_method => "TipoPagamento",
+      :order_id       => "Referencia",
+      :processed_at   => "DataTransacao",
+      :status         => "StatusTransacao",
+      :transaction_id => "TransacaoID",
+      :shipping_type  => "TipoFrete",
+      :shipping       => "ValorFrete",
+      :notes          => "Anotacao"
+    }
+
+    # Map order status from PagSeguro.
+    #
+    STATUS = {
+      "Completo"          => :completed,
+      "Aguardando Pagto"  => :pending,
+      "Aprovado"          => :approved,
+      "Em Análise"        => :verifying,
+      "Cancelado"         => :canceled,
+      "Devolvido"         => :refunded
+    }
+
+    # Map payment method from PagSeguro.
+    #
+    PAYMENT_METHOD = {
+      "Cartão de Crédito" => :credit_card,
+      "Boleto"            => :invoice,
+      "Pagamento"         => :pagseguro,
+      "Pagamento Online"  => :online_transfer,
+      "Doação"            => :donation
+    }

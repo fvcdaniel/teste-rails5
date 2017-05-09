@@ -1,0 +1,11 @@
+<fieldset>
+	<legend>Meus Pedidos</legend>
+	<% unless @pedidos.blank?%>
+		<%= render :partial => "pedidos/list" %>
+	<%else%>
+		<div style="margin: 20px">
+			Você não tem pedidos no momento. 
+			Clique em "comprar" na pagina de pesquisa e confirme o pedido clicando no botão de efetuar pagamento.
+		</div>
+	<%end%>
+</fieldset>

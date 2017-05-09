@@ -1,0 +1,30 @@
+
+<table summary="pedidos Cadastradas" id="newspaper-a">
+	<thead>
+		<tr>
+			<th scope="col">Musica</th>
+			<th scope="col">Artista</th>
+			<th scope="col">Pedido</th>
+			<th scope="col">Status</th>
+			<th scope="col">Efetuar Pagamento</th>
+		</tr>
+	</thead>
+	<% for pedido in @pedidos %>
+		<% pedido.musica.nome.force_encoding('utf-8') if pedido.musica %>
+		<tbody>
+			<tr>
+				<td><%=h pedido.musica.nome %></td>
+				<td><%=h pedido.musica.artista %></td>
+				<td><%=h pedido.id %></td>
+				<td><%=h pedido.status %></td>
+				<td><%=
+					   link_to_if(pedido.pago?, "Pagamento efetuado!", { :controller => "pedidos", :action => "show" }) do
+					     link_to("Pagar", { :controller => "pedidos", :action => "show", :id => pedido.id })
+					   end
+					%>
+				</td>
+			</tr>
+		</tbody>
+	<%end%>
+</table>
+	

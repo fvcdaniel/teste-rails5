@@ -1,0 +1,26 @@
+<table summary="pedidos Cadastradas" id="newspaper-a">
+	<thead>
+		<tr>
+			<th scope="col">Nome</th>
+			<th scope="col">Artista</th>
+			<!-- <th scope="col">Ano</th> -->
+			<th scope="col">Downloads</th>
+			<th scope="col">Comprar</th>
+			<th scope="col">Ouvir</th>
+		</tr>
+	</thead>
+	<% for musica in @musicas %>
+		<% musica.nome.force_encoding('utf-8') %>
+		<tbody>
+			<tr>
+				<td><%=h musica.nome %></td>
+				<td><%=h musica.artista %></td>
+				<!-- <td><%=h musica.ano %></td> -->
+				<td><%=h musica.download.to_i %></td>
+				<td><%=	link_to('Comprar', { :controller => 'pedidos', :action => 'comprar', :musica_id => musica.id })%></td>
+				<td><%=link_to 'Clique aqui para ouvir', musica.arquivo.url, :class => "html5", :id=>musica.id%></td>
+			</tr>
+		</tbody>
+	<%end%>
+</table>
+	

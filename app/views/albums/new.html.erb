@@ -1,0 +1,15 @@
+<fieldset style="width: 60%">
+	<legend>Cadastro de Album</legend>
+	
+	<%= devise_error_messages! %>
+	
+	<%= simple_form_for Album.new, :html => {:multipart => true} do |f| %>
+		
+		<%=f.input :nome%>
+		<%=f.input :descricao, :as => :text %>
+		
+		<%=f.submit "Enviar", :disable_with => '...'%>
+		<%=button_to_function "Voltar", "history.back()"%>
+		
+	<%end%>
+</fieldset>

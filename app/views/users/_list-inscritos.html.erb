@@ -1,0 +1,20 @@
+
+<table summary="Amigos Inscritos" id="newspaper-a">
+	<thead>
+		<tr>
+			<th scope="col">Nome</th>
+			<th scope="col">Email</th>
+			<th scope="col"></th>
+		</tr>
+	</thead>
+	<% for user in @inscritos %>
+		<tbody>
+			<tr>
+				<td><%=h user.nm_usuario %></td>
+				<td><%=h user.email %></td>
+				<td><%=link_to 'Excluir', {:action=>'unsubscribe', :email=>user.email}, :confirm=>"Você tem certeza que deseja excluir?" %></td>
+			</tr>
+		</tbody>
+	<%end%>
+</table>
+	

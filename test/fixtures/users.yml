@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/Fixtures.html
+
+one:
+  nm_usuario: MyString
+  ds_email: MyString
+  ds_senha: MyString
+
+two:
+  nm_usuario: MyString
+  ds_email: MyString
+  ds_senha: MyString

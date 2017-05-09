@@ -1,0 +1,14 @@
+<fieldset style="width: 60%">
+	<legend>Editar Album</legend>
+	<%= form_for @album, :html => {:multipart => true} do |f| %>
+		
+		<%=f.label :nome, "Nome", :class => :label%>
+		<%=f.text_field :nome, :class => :input%><br />
+		<%=f.label :descricao, "Descrição", :class => :label%>
+		<%=f.text_area :descricao, :class => :input%><br />
+		
+		<%=f.submit "Enviar", :disable_with => '...', :class => :input%>
+		<%=button_to_function "Voltar", "history.back()"%>
+		
+	<%end%>
+</fieldset>

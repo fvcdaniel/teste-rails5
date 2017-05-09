@@ -1,0 +1,14 @@
+<fieldset style="width: 70%">
+	<legend>Meu Album</legend>
+	<p>
+	  <b>Nome:</b>
+	  <%= @album.nome %>
+	</p>
+	<p>
+	  <b>Artista:</b>
+	  <%= @album.descricao %>
+	</p>
+	 
+	<%= link_to 'Editar', edit_album_path(@album) %> |
+	<%= link_to 'Voltar', albums_path %>
+</fieldset>

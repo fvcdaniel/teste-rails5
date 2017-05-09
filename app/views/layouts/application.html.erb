@@ -1,0 +1,147 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<!--
+Design by Free CSS Templates
+http://www.freecsstemplates.org
+Released for free under a Creative Commons Attribution 2.5 License
+
+Name       : Timeless   
+Description: A two-column, fixed-width design with dark color scheme.
+Version    : 1.0
+Released   : 20110825
+
+-->
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+		<meta name="keywords" content="" />
+		<meta name="description" content="" />
+		<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+		<title>GospelMusic Downloads</title>
+			<%= stylesheet_link_tag    "application" %>
+			<%= javascript_include_tag "application" %>
+			<%= csrf_meta_tags %>
+	</head>
+<body>
+<div id="wrapper">
+	<div id="header-wrapper">
+		<div id="header">
+
+			<div id="logo">
+				<h1><%= link_to "Midia Gospel", home_path, :method => :get %></h1>
+				<p>Abençoe um adorador do Senhor</p>
+			</div>
+		</div>
+	</div>
+	<!-- end #header -->
+
+	<div id="menu">
+		<ul>
+			<li><%= link_to "INICIO", home_path, :method => :get %></li>
+			<%if user_signed_in? %>
+				<%if can? :create, Musica %>
+	    			<li><%= link_to "MINHAS MUSICAS", musicas_path, :method => :get %></li>
+				<%end%>
+				<%if can? :read, Pedido %>
+					<li><%= link_to "MEUS PEDIDOS", {:controller => 'pedidos'} %></li>>
+				<%end%>
+				<%if can? :create, Musica %>
+	    			<li><%= link_to "INSCREVER AMIGO", {:controller => 'users', :action => 'inscrever'} %></li>
+				<%end%>
+			<%end%>
+			<li><%= link_to "CONTATO", {:controller => 'home', :action=>'contato'}, :method => :get %></li>
+			<li><%= link_to "SOBRE", {:controller => 'home', :action => 'sobre'}, :method => :get %></li>
+			<!-- <li><%= link_to "AJUDA", {:action=>'ajuda'}, :method => :get %></li> -->
+			<li><%= link_to "SAIR", destroy_user_session_path, :method => :delete %></li>
+		</ul>
+	</div>
+	<!-- end #menu -->
+	<div id="page">
+		<div id="page-bgtop">
+			<div id="page-bgbtm">
+				<div id="content">
+
+					<%= yield %>
+					<div style="clear: both;">&nbsp;</div>
+				</div>
+				<!-- end #content -->
+				<div id="sidebar">
+
+					<ul>
+						
+						<li>
+							<section id="audio" ><audio controls="controls" tabindex="0"></audio></section>
+							<%if !user_signed_in? %>
+								<div align="left">
+									<%= render :partial => "users/sign_in" %>
+								</div>
+							<%end%>
+						</li>
+						<!-- <li>
+							<h2>Categories</h2>
+
+							<ul>
+								<li><a href="#">Aliquam libero</a></li>
+								<li><a href="#">Consectetuer adipiscing elit</a></li>
+								<li><a href="#">Metus aliquam pellentesque</a></li>
+								<li><a href="#">Suspendisse iaculis mauris</a></li>
+								<li><a href="#">Urnanet non molestie semper</a></li>
+
+								<li><a href="#">Proin gravida orci porttitor</a></li>
+							</ul>
+						</li>
+						<li>
+							<h2>Blogroll</h2>
+							<ul>
+								<li><a href="#">Aliquam libero</a></li>
+
+								<li><a href="#">Consectetuer adipiscing elit</a></li>
+								<li><a href="#">Metus aliquam pellentesque</a></li>
+								<li><a href="#">Suspendisse iaculis mauris</a></li>
+								<li><a href="#">Urnanet non molestie semper</a></li>
+								<li><a href="#">Proin gravida orci porttitor</a></li>
+							</ul>
+
+						</li>
+						<li>
+							<h2>Archives</h2>
+							<ul>
+								<li><a href="#">Aliquam libero</a></li>
+								<li><a href="#">Consectetuer adipiscing elit</a></li>
+								<li><a href="#">Metus aliquam pellentesque</a></li>
+
+								<li><a href="#">Suspendisse iaculis mauris</a></li>
+								<li><a href="#">Urnanet non molestie semper</a></li>
+								<li><a href="#">Proin gravida orci porttitor</a></li>
+							</ul>
+						</li> -->
+					</ul>
+				</div>
+				<!-- end #sidebar -->
+				<div style="clear: both;">&nbsp;</div>
+			</div>
+		</div>
+	</div>
+	<!-- end #page -->
+</div>
+<div align="center">
+	<br />
+	<script type="text/javascript"><!--
+		google_ad_client = "ca-pub-6098263277323753";
+		/* Google Default */
+		google_ad_slot = "2368870287";
+		google_ad_width = 728;
+		google_ad_height = 90;
+		//-->
+		</script>
+		<script type="text/javascript"
+		src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+	</script>
+	<br />
+</div>
+<div id="footer">
+					
+	<p>Copyright (c) 2011 <a href="http://www.midia-gospel.com/">midia-gospel.com</a>. Todos os direitos reservados. Design by <a href="http://www.freecsstemplates.org/"> CSS Templates</a>.</p>
+
+</div>
+<!-- end #footer -->
+</body>
+</html>

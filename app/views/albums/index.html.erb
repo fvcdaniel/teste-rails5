@@ -1,0 +1,11 @@
+<fieldset style="width: 70%">
+	<legend>Meus Albuns</legend>
+	<%= render :partial => "layouts/menu-resource" %>
+	<% unless current_user.albums.blank?%>
+		<%= render :partial => "albums/list" %>
+	<%else%>
+		<div style="margin: 20px">
+			Você não tem albums cadastrados no momento. Clique em "adicionar album" para cadastrar um novo album.
+		</div>
+	<%end%>
+</fieldset>

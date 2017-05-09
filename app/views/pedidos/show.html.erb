@@ -1,0 +1,26 @@
+<fieldset>
+	<legend>Meu Album</legend>
+	<p>
+	  <b>Nome:</b>
+	  <%= @pedido.musica.nome %>
+	</p>
+	<p>
+	  <b>Artista:</b>
+	  <%= @pedido.musica.artista %>
+	</p>
+	<p>
+	  <b>Ano:</b>
+	  <%= @pedido.musica.ano %>
+	</p>
+	<p>
+	  <b>Pedido:</b>
+	  <%= @pedido.id %>
+	</p>
+	<p>
+		<b>Comprar Agora!</b>
+		<%= pagseguro_form @order, :submit => "Efetuar pagamento!" %>
+	</p>
+	
+	 
+	<%= link_to 'Voltar', :back %>
+</fieldset>
